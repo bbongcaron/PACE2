@@ -1,0 +1,8 @@
+**/ACEALAGLY
+**_local.json
+*.tpr
+*.trr
+*.xml
+**/dev_resources
+**/re.session.**/
+**/__pycache__/
