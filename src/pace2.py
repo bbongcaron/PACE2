@@ -129,7 +129,6 @@ def main() -> None:
     # Generate all pipelines
     pipelines = []
     hyperparameters = Queue(maxsize=candidate_specifications_dict['candidates'])
-    candidate_pool_dirName = candidate_specifications_dict['basename']
 
     for cid in range(candidate_specifications_dict['candidates']):
         # Create candidate pipeline
