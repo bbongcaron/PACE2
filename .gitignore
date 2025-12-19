@@ -3,6 +3,7 @@
 *.tpr
 *.trr
 *.xml
+src/out*.txt
 **/dev_resources
 **/re.session.**/
 **/__pycache__/
