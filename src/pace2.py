@@ -52,7 +52,6 @@ def read_jsons() -> Tuple[Dict, Dict]:
     sim_dict['md_binary']     = simdata["md_binary"]
     sim_dict['structure_in']     = simdata["structure_in"]
     sim_dict['structure_out']     = simdata["structure_out"]
-    sim_dict['workflow']        = simdata["workflow"]
 
     sim_dict['pilot_cores'] = resdata["cpus"]
 
