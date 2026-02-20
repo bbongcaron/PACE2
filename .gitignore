@@ -1,7 +1,4 @@
 **_local.json
-*.tpr
-*.trr
-*.xml
 src/out*.txt
 **/dev_resources
 **/re.session.**/

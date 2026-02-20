@@ -22,7 +22,7 @@ class CandidateManagerAsync:
 
     def __init__(self, pipelines: list[Pipeline]):
         self.pipelines = pipelines
-        self.logger = logging.init_default_logger(log_level="INFO", output_file="logs.json", structured_logging=True)
+        self.logger = logging.init_default_logger(log_level="DEBUG", output_file="logs.json", structured_logging=True)
 
     async def execute_pipelines(self):
         backend = await ConcurrentExecutionBackend(ThreadPoolExecutor())
@@ -42,6 +42,7 @@ class CandidateManagerAsync:
                 now = time.time()
                 self.logger.info(f"[{now:.2f}] {task.name} started")
                 wf = await task_execution(task)
+                time.sleep(5)
                 self.logger.info(wf)
                 self.logger.info(f"[{time.time():.2f}] {task.name} completed")
 

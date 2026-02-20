@@ -1,0 +1,588 @@
+2026-02-20 00:24:35.933 │ INFO │ [root] │ Logger configured successfully - Console: INFO, File: logs.json (N/A), Structured: logs.json, Style: modern
+{"timestamp": "2026-02-20 00:24:35,933", "level": "INFO", "logger": "root", "message": "Logger configured successfully - Console: INFO, File: logs.json (N/A), Structured: logs.json, Style: modern", "taskName": null, "short_name": "root", "asctime": "2026-02-20 00:24:35"}
+2026-02-20 00:24:35.934 │ INFO │ [execution.backend(concurrent)] │ ThreadPoolExecutor execution backend started successfully
+{"timestamp": "2026-02-20 00:24:35,934", "level": "INFO", "logger": "radical.asyncflow.backends.execution.concurrent", "message": "ThreadPoolExecutor execution backend started successfully", "taskName": "Task-1", "short_name": "execution.backend(concurrent)", "asctime": "2026-02-20 00:24:35"}
+2026-02-20 00:24:35.934 │ INFO │ [workflow_manager] │ Submitting ['create_block', 'create_block'] for execution
+{"timestamp": "2026-02-20 00:24:35,934", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['create_block', 'create_block'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:35"}
+2026-02-20 00:24:35.934 │ INFO │ [root] │ [1771565075.93]  started
+{"timestamp": "2026-02-20 00:24:35,934", "level": "INFO", "logger": "root", "message": "[1771565075.93]  started", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:35"}
+2026-02-20 00:24:35.934 │ INFO │ [root] │ [1771565075.93]  started
+{"timestamp": "2026-02-20 00:24:35,934", "level": "INFO", "logger": "root", "message": "[1771565075.93]  started", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:35"}
+2026-02-20 00:24:35.945 │ INFO │ [workflow_manager] │ Submitting ['task_execution', 'task_execution'] for execution
+{"timestamp": "2026-02-20 00:24:35,945", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution', 'task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:35"}
+2026-02-20 00:24:36.775 │ INFO │ [workflow_manager] │ task.000004 is in DONE state
+{"timestamp": "2026-02-20 00:24:36,775", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000004 is in DONE state", "taskName": "Task-7", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:36"}
+2026-02-20 00:24:41.775 │ INFO │ [root] │ I have 2653 beads in 878 molecules
+--------------------------------------
+WARNING: unknown molecule "NA" with id 877 in topology
+molecule will not be mapped to CG representation
+Check weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name
+--------------------------------------
+I have 879 beads in 877 molecules for the coarsegraining
+
+a: 0.37 ,sigma: 1 ,gamma: 0.12
+Number of spline functions for the interaction ACE-SOL2:10
+
+You are using VOTCA!
+
+hey, somebody wants to forcematch!
+
+Using constrained Least Squares!
+ 
+This should be a number: -5.04634 
+
+Block No1 done!
+Updating file: ACE-SOL2.force
+This should be a number: -1.23755 
+
+Block No2 done!
+Updating file: ACE-SOL2.force
+This should be a number: -20.3109 
+
+Block No3 done!
+Updating file: ACE-SOL2.force
+This should be a number: -9.4968 
+
+Block No4 done!
+Updating file: ACE-SOL2.force
+This should be a number: -19.3521 
+
+Block No5 done!
+Updating file: ACE-SOL2.force
+This should be a number: -33.6283 
+
+Block No6 done!
+Updating file: ACE-SOL2.force
+This should be a number: -14.9696 
+
+Block No7 done!
+Updating file: ACE-SOL2.force
+This should be a number: -27.3738 
+
+Block No8 done!
+Updating file: ACE-SOL2.force
+This should be a number: -23.8415 
+
+Block No9 done!
+Updating file: ACE-SOL2.force
+This should be a number: 13.3349 
+
+Block No10 done!
+Updating file: ACE-SOL2.force
+This should be a number: -10.6481 
+
+Block No11 done!
+Updating file: ACE-SOL2.force
+This should be a number: -12.4956 
+
+Block No12 done!
+Updating file: ACE-SOL2.force
+This should be a number: 2.3591 
+
+Block No13 done!
+Updating file: ACE-SOL2.force
+This should be a number: -2.24133 
+
+Block No14 done!
+Updating file: ACE-SOL2.force
+This should be a number: 0.0216876 
+
+Block No15 done!
+Updating file: ACE-SOL2.force
+This should be a number: -1.66655 
+
+Block No16 done!
+Updating file: ACE-SOL2.force
+This should be a number: -5.79112 
+
+Block No17 done!
+Updating file: ACE-SOL2.force
+This should be a number: -8.30452 
+
+Block No18 done!
+Updating file: ACE-SOL2.force
+This should be a number: 2.91594 
+
+Block No19 done!
+Updating file: ACE-SOL2.force
+This should be a number: 6.82555 
+
+Block No20 done!
+Updating file: ACE-SOL2.force
+
+We are done, thank you very much!
+
+{"timestamp": "2026-02-20 00:24:41,775", "level": "INFO", "logger": "root", "message": "I have 2653 beads in 878 molecules\n--------------------------------------\nWARNING: unknown molecule \"NA\" with id 877 in topology\nmolecule will not be mapped to CG representation\nCheck weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name\n--------------------------------------\nI have 879 beads in 877 molecules for the coarsegraining\n\na: 0.37 ,sigma: 1 ,gamma: 0.12\nNumber of spline functions for the interaction ACE-SOL2:10\n\nYou are using VOTCA!\n\nhey, somebody wants to forcematch!\n\nUsing constrained Least Squares!\n \nThis should be a number: -5.04634 \n\nBlock No1 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -1.23755 \n\nBlock No2 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -20.3109 \n\nBlock No3 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -9.4968 \n\nBlock No4 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -19.3521 \n\nBlock No5 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -33.6283 \n\nBlock No6 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -14.9696 \n\nBlock No7 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -27.3738 \n\nBlock No8 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -23.8415 \n\nBlock No9 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 13.3349 \n\nBlock No10 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -10.6481 \n\nBlock No11 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -12.4956 \n\nBlock No12 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 2.3591 \n\nBlock No13 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -2.24133 \n\nBlock No14 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 0.0216876 \n\nBlock No15 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -1.66655 \n\nBlock No16 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -5.79112 \n\nBlock No17 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -8.30452 \n\nBlock No18 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 2.91594 \n\nBlock No19 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 6.82555 \n\nBlock No20 done!\nUpdating file: ACE-SOL2.force\n\nWe are done, thank you very much!\n", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:41"}
+2026-02-20 00:24:41.776 │ INFO │ [root] │ [1771565081.78]  completed
+{"timestamp": "2026-02-20 00:24:41,776", "level": "INFO", "logger": "root", "message": "[1771565081.78]  completed", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:41"}
+2026-02-20 00:24:41.796 │ INFO │ [root] │ [1771565081.80]  started
+{"timestamp": "2026-02-20 00:24:41,796", "level": "INFO", "logger": "root", "message": "[1771565081.80]  started", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:41"}
+2026-02-20 00:24:41.796 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:24:41,796", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:41"}
+2026-02-20 00:24:41.797 │ INFO │ [workflow_manager] │ task.000003 is in DONE state
+{"timestamp": "2026-02-20 00:24:41,797", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000003 is in DONE state", "taskName": "Task-6", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:41"}
+2026-02-20 00:24:46.797 │ INFO │ [root] │ I have 2653 beads in 878 molecules
+--------------------------------------
+WARNING: unknown molecule "NA" with id 877 in topology
+molecule will not be mapped to CG representation
+Check weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name
+--------------------------------------
+I have 879 beads in 877 molecules for the coarsegraining
+
+a: 0.37 ,sigma: 1 ,gamma: 0.12
+Number of spline functions for the interaction ACE-SOL1:10
+
+You are using VOTCA!
+
+hey, somebody wants to forcematch!
+
+Using constrained Least Squares!
+ 
+This should be a number: -5.04634 
+
+Block No1 done!
+Updating file: ACE-SOL1.force
+This should be a number: -1.23755 
+
+Block No2 done!
+Updating file: ACE-SOL1.force
+This should be a number: -20.3109 
+
+Block No3 done!
+Updating file: ACE-SOL1.force
+This should be a number: -9.4968 
+
+Block No4 done!
+Updating file: ACE-SOL1.force
+This should be a number: -19.3521 
+
+Block No5 done!
+Updating file: ACE-SOL1.force
+This should be a number: -33.6283 
+
+Block No6 done!
+Updating file: ACE-SOL1.force
+This should be a number: -14.9696 
+
+Block No7 done!
+Updating file: ACE-SOL1.force
+This should be a number: -27.3738 
+
+Block No8 done!
+Updating file: ACE-SOL1.force
+This should be a number: -23.8415 
+
+Block No9 done!
+Updating file: ACE-SOL1.force
+This should be a number: 13.3349 
+
+Block No10 done!
+Updating file: ACE-SOL1.force
+This should be a number: -10.6481 
+
+Block No11 done!
+Updating file: ACE-SOL1.force
+This should be a number: -12.4956 
+
+Block No12 done!
+Updating file: ACE-SOL1.force
+This should be a number: 2.3591 
+
+Block No13 done!
+Updating file: ACE-SOL1.force
+This should be a number: -2.24133 
+
+Block No14 done!
+Updating file: ACE-SOL1.force
+This should be a number: 0.0216876 
+
+Block No15 done!
+Updating file: ACE-SOL1.force
+This should be a number: -1.66655 
+
+Block No16 done!
+Updating file: ACE-SOL1.force
+This should be a number: -5.79112 
+
+Block No17 done!
+Updating file: ACE-SOL1.force
+This should be a number: -8.30452 
+
+Block No18 done!
+Updating file: ACE-SOL1.force
+This should be a number: 2.91594 
+
+Block No19 done!
+Updating file: ACE-SOL1.force
+This should be a number: 6.82555 
+
+Block No20 done!
+Updating file: ACE-SOL1.force
+
+We are done, thank you very much!
+
+{"timestamp": "2026-02-20 00:24:46,797", "level": "INFO", "logger": "root", "message": "I have 2653 beads in 878 molecules\n--------------------------------------\nWARNING: unknown molecule \"NA\" with id 877 in topology\nmolecule will not be mapped to CG representation\nCheck weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name\n--------------------------------------\nI have 879 beads in 877 molecules for the coarsegraining\n\na: 0.37 ,sigma: 1 ,gamma: 0.12\nNumber of spline functions for the interaction ACE-SOL1:10\n\nYou are using VOTCA!\n\nhey, somebody wants to forcematch!\n\nUsing constrained Least Squares!\n \nThis should be a number: -5.04634 \n\nBlock No1 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -1.23755 \n\nBlock No2 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -20.3109 \n\nBlock No3 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -9.4968 \n\nBlock No4 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -19.3521 \n\nBlock No5 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -33.6283 \n\nBlock No6 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -14.9696 \n\nBlock No7 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -27.3738 \n\nBlock No8 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -23.8415 \n\nBlock No9 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 13.3349 \n\nBlock No10 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -10.6481 \n\nBlock No11 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -12.4956 \n\nBlock No12 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 2.3591 \n\nBlock No13 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -2.24133 \n\nBlock No14 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 0.0216876 \n\nBlock No15 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -1.66655 \n\nBlock No16 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -5.79112 \n\nBlock No17 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -8.30452 \n\nBlock No18 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 2.91594 \n\nBlock No19 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 6.82555 \n\nBlock No20 done!\nUpdating file: ACE-SOL1.force\n\nWe are done, thank you very much!\n", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:46"}
+2026-02-20 00:24:46.817 │ INFO │ [root] │ [1771565086.82]  completed
+{"timestamp": "2026-02-20 00:24:46,817", "level": "INFO", "logger": "root", "message": "[1771565086.82]  completed", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:46"}
+2026-02-20 00:24:46.817 │ INFO │ [root] │ [1771565086.82]  started
+{"timestamp": "2026-02-20 00:24:46,817", "level": "INFO", "logger": "root", "message": "[1771565086.82]  started", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:46"}
+2026-02-20 00:24:46.817 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:24:46,817", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:46"}
+2026-02-20 00:24:46.818 │ INFO │ [workflow_manager] │ task.000005 is in DONE state
+{"timestamp": "2026-02-20 00:24:46,818", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000005 is in DONE state", "taskName": "Task-17", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:46"}
+2026-02-20 00:24:51.818 │ INFO │ [root] │ 
+{"timestamp": "2026-02-20 00:24:51,818", "level": "INFO", "logger": "root", "message": "", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:51"}
+2026-02-20 00:24:51.818 │ INFO │ [root] │ [1771565091.82]  completed
+{"timestamp": "2026-02-20 00:24:51,818", "level": "INFO", "logger": "root", "message": "[1771565091.82]  completed", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:51"}
+2026-02-20 00:24:51.838 │ INFO │ [root] │ [1771565091.84]  started
+{"timestamp": "2026-02-20 00:24:51,838", "level": "INFO", "logger": "root", "message": "[1771565091.84]  started", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:24:51"}
+2026-02-20 00:24:51.838 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:24:51,838", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:51"}
+2026-02-20 00:24:51.839 │ INFO │ [workflow_manager] │ task.000006 is in DONE state
+{"timestamp": "2026-02-20 00:24:51,839", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000006 is in DONE state", "taskName": "Task-23", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:51"}
+2026-02-20 00:24:56.839 │ INFO │ [root] │ 
+{"timestamp": "2026-02-20 00:24:56,839", "level": "INFO", "logger": "root", "message": "", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:56"}
+2026-02-20 00:24:56.839 │ INFO │ [root] │ [1771565096.84]  completed
+{"timestamp": "2026-02-20 00:24:56,839", "level": "INFO", "logger": "root", "message": "[1771565096.84]  completed", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:56"}
+2026-02-20 00:24:56.859 │ INFO │ [root] │ [1771565096.86]  started
+{"timestamp": "2026-02-20 00:24:56,859", "level": "INFO", "logger": "root", "message": "[1771565096.86]  started", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:24:56"}
+2026-02-20 00:24:56.860 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:24:56,860", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:56"}
+2026-02-20 00:24:56.860 │ INFO │ [workflow_manager] │ task.000007 is in DONE state
+{"timestamp": "2026-02-20 00:24:56,860", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000007 is in DONE state", "taskName": "Task-29", "short_name": "workflow_manager", "asctime": "2026-02-20 00:24:56"}
+2026-02-20 00:25:01.860 │ INFO │ [root] │ table_linearop.pl: ACE-SOL2.pot to ACE-SOL2.pot with y' = -1*y + 0 
+
+{"timestamp": "2026-02-20 00:25:01,860", "level": "INFO", "logger": "root", "message": "table_linearop.pl: ACE-SOL2.pot to ACE-SOL2.pot with y' = -1*y + 0 \n", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:25:01"}
+2026-02-20 00:25:01.861 │ INFO │ [root] │ [1771565101.86]  completed
+{"timestamp": "2026-02-20 00:25:01,861", "level": "INFO", "logger": "root", "message": "[1771565101.86]  completed", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:25:01"}
+2026-02-20 00:25:01.862 │ INFO │ [workflow_manager] │ task.000008 is in DONE state
+{"timestamp": "2026-02-20 00:25:01,862", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000008 is in DONE state", "taskName": "Task-35", "short_name": "workflow_manager", "asctime": "2026-02-20 00:25:01"}
+2026-02-20 00:25:06.862 │ INFO │ [root] │ table_linearop.pl: ACE-SOL1.pot to ACE-SOL1.pot with y' = -1*y + 0 
+
+{"timestamp": "2026-02-20 00:25:06,862", "level": "INFO", "logger": "root", "message": "table_linearop.pl: ACE-SOL1.pot to ACE-SOL1.pot with y' = -1*y + 0 \n", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:25:06"}
+2026-02-20 00:25:06.862 │ INFO │ [root] │ [1771565106.86]  completed
+{"timestamp": "2026-02-20 00:25:06,862", "level": "INFO", "logger": "root", "message": "[1771565106.86]  completed", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:25:06"}
+2026-02-20 00:25:06.882 │ INFO │ [workflow_manager] │ Initiating shutdown
+{"timestamp": "2026-02-20 00:25:06,882", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Initiating shutdown", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:25:06"}
+2026-02-20 00:25:06.882 │ INFO │ [execution.backend(concurrent)] │ Concurrent execution backend shutdown complete
+{"timestamp": "2026-02-20 00:25:06,882", "level": "INFO", "logger": "radical.asyncflow.backends.execution.concurrent", "message": "Concurrent execution backend shutdown complete", "taskName": "Task-1", "short_name": "execution.backend(concurrent)", "asctime": "2026-02-20 00:25:06"}
+2026-02-20 00:25:06.882 │ INFO │ [workflow_manager] │ Shutdown completed for all components.
+{"timestamp": "2026-02-20 00:25:06,882", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Shutdown completed for all components.", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:25:06"}
+2026-02-20 00:27:58.744 │ INFO │ [root] │ Logger configured successfully - Console: DEBUG, File: logs.json (N/A), Structured: logs.json, Style: modern
+{"timestamp": "2026-02-20 00:27:58,744", "level": "INFO", "logger": "root", "message": "Logger configured successfully - Console: DEBUG, File: logs.json (N/A), Structured: logs.json, Style: modern", "taskName": null, "short_name": "root", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.744 │ DEBUG │ [asyncio] │ Using selector: EpollSelector
+{"timestamp": "2026-02-20 00:27:58,744", "level": "DEBUG", "logger": "asyncio", "message": "Using selector: EpollSelector", "taskName": null, "short_name": "asyncio", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.744 │ INFO │ [execution.backend(concurrent)] │ ThreadPoolExecutor execution backend started successfully
+{"timestamp": "2026-02-20 00:27:58,744", "level": "INFO", "logger": "radical.asyncflow.backends.execution.concurrent", "message": "ThreadPoolExecutor execution backend started successfully", "taskName": "Task-1", "short_name": "execution.backend(concurrent)", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.744 │ DEBUG │ [workflow_manager] │ Registered signal handler for SIGHUP
+{"timestamp": "2026-02-20 00:27:58,744", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered signal handler for SIGHUP", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.744 │ DEBUG │ [workflow_manager] │ Registered signal handler for SIGTERM
+{"timestamp": "2026-02-20 00:27:58,744", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered signal handler for SIGTERM", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.744 │ DEBUG │ [workflow_manager] │ Registered signal handler for SIGINT
+{"timestamp": "2026-02-20 00:27:58,744", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered signal handler for SIGINT", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.744 │ DEBUG │ [workflow_manager] │ Started run component
+{"timestamp": "2026-02-20 00:27:58,744", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Started run component", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ DEBUG │ [workflow_manager] │ Registered block: 'create_block' with id of block.000001
+{"timestamp": "2026-02-20 00:27:58,745", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered block: 'create_block' with id of block.000001", "taskName": "Task-2", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ DEBUG │ [workflow_manager] │ Registered block: 'create_block' with id of block.000002
+{"timestamp": "2026-02-20 00:27:58,745", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered block: 'create_block' with id of block.000002", "taskName": "Task-3", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ DEBUG │ [workflow_manager] │ Ready to submit: create_block with resolved dependencies: []
+{"timestamp": "2026-02-20 00:27:58,745", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: create_block with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ DEBUG │ [workflow_manager] │ Ready to submit: create_block with resolved dependencies: []
+{"timestamp": "2026-02-20 00:27:58,745", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: create_block with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ INFO │ [workflow_manager] │ Submitting ['create_block', 'create_block'] for execution
+{"timestamp": "2026-02-20 00:27:58,745", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['create_block', 'create_block'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ INFO │ [root] │ [1771565278.75]  started
+{"timestamp": "2026-02-20 00:27:58,745", "level": "INFO", "logger": "root", "message": "[1771565278.75]  started", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ INFO │ [root] │ [1771565278.75]  started
+{"timestamp": "2026-02-20 00:27:58,745", "level": "INFO", "logger": "root", "message": "[1771565278.75]  started", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ DEBUG │ [workflow_manager] │ Registered task: 'task_execution' with id of task.000003
+{"timestamp": "2026-02-20 00:27:58,745", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered task: 'task_execution' with id of task.000003", "taskName": "Task-4", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.745 │ DEBUG │ [workflow_manager] │ Registered task: 'task_execution' with id of task.000004
+{"timestamp": "2026-02-20 00:27:58,745", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered task: 'task_execution' with id of task.000004", "taskName": "Task-5", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.755 │ DEBUG │ [workflow_manager] │ Ready to submit: task_execution with resolved dependencies: []
+{"timestamp": "2026-02-20 00:27:58,755", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: task_execution with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.755 │ DEBUG │ [workflow_manager] │ Ready to submit: task_execution with resolved dependencies: []
+{"timestamp": "2026-02-20 00:27:58,755", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: task_execution with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:58.755 │ INFO │ [workflow_manager] │ Submitting ['task_execution', 'task_execution'] for execution
+{"timestamp": "2026-02-20 00:27:58,755", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution', 'task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:58"}
+2026-02-20 00:27:59.590 │ INFO │ [workflow_manager] │ task.000003 is in DONE state
+{"timestamp": "2026-02-20 00:27:59,590", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000003 is in DONE state", "taskName": "Task-6", "short_name": "workflow_manager", "asctime": "2026-02-20 00:27:59"}
+2026-02-20 00:28:04.590 │ INFO │ [root] │ I have 2653 beads in 878 molecules
+--------------------------------------
+WARNING: unknown molecule "NA" with id 877 in topology
+molecule will not be mapped to CG representation
+Check weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name
+--------------------------------------
+I have 879 beads in 877 molecules for the coarsegraining
+
+a: 0.37 ,sigma: 1 ,gamma: 0.12
+Number of spline functions for the interaction ACE-SOL1:10
+
+You are using VOTCA!
+
+hey, somebody wants to forcematch!
+
+Using constrained Least Squares!
+ 
+This should be a number: -5.04634 
+
+Block No1 done!
+Updating file: ACE-SOL1.force
+This should be a number: -1.23755 
+
+Block No2 done!
+Updating file: ACE-SOL1.force
+This should be a number: -20.3109 
+
+Block No3 done!
+Updating file: ACE-SOL1.force
+This should be a number: -9.4968 
+
+Block No4 done!
+Updating file: ACE-SOL1.force
+This should be a number: -19.3521 
+
+Block No5 done!
+Updating file: ACE-SOL1.force
+This should be a number: -33.6283 
+
+Block No6 done!
+Updating file: ACE-SOL1.force
+This should be a number: -14.9696 
+
+Block No7 done!
+Updating file: ACE-SOL1.force
+This should be a number: -27.3738 
+
+Block No8 done!
+Updating file: ACE-SOL1.force
+This should be a number: -23.8415 
+
+Block No9 done!
+Updating file: ACE-SOL1.force
+This should be a number: 13.3349 
+
+Block No10 done!
+Updating file: ACE-SOL1.force
+This should be a number: -10.6481 
+
+Block No11 done!
+Updating file: ACE-SOL1.force
+This should be a number: -12.4956 
+
+Block No12 done!
+Updating file: ACE-SOL1.force
+This should be a number: 2.3591 
+
+Block No13 done!
+Updating file: ACE-SOL1.force
+This should be a number: -2.24133 
+
+Block No14 done!
+Updating file: ACE-SOL1.force
+This should be a number: 0.0216876 
+
+Block No15 done!
+Updating file: ACE-SOL1.force
+This should be a number: -1.66655 
+
+Block No16 done!
+Updating file: ACE-SOL1.force
+This should be a number: -5.79112 
+
+Block No17 done!
+Updating file: ACE-SOL1.force
+This should be a number: -8.30452 
+
+Block No18 done!
+Updating file: ACE-SOL1.force
+This should be a number: 2.91594 
+
+Block No19 done!
+Updating file: ACE-SOL1.force
+This should be a number: 6.82555 
+
+Block No20 done!
+Updating file: ACE-SOL1.force
+
+We are done, thank you very much!
+
+{"timestamp": "2026-02-20 00:28:04,590", "level": "INFO", "logger": "root", "message": "I have 2653 beads in 878 molecules\n--------------------------------------\nWARNING: unknown molecule \"NA\" with id 877 in topology\nmolecule will not be mapped to CG representation\nCheck weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name\n--------------------------------------\nI have 879 beads in 877 molecules for the coarsegraining\n\na: 0.37 ,sigma: 1 ,gamma: 0.12\nNumber of spline functions for the interaction ACE-SOL1:10\n\nYou are using VOTCA!\n\nhey, somebody wants to forcematch!\n\nUsing constrained Least Squares!\n \nThis should be a number: -5.04634 \n\nBlock No1 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -1.23755 \n\nBlock No2 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -20.3109 \n\nBlock No3 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -9.4968 \n\nBlock No4 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -19.3521 \n\nBlock No5 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -33.6283 \n\nBlock No6 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -14.9696 \n\nBlock No7 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -27.3738 \n\nBlock No8 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -23.8415 \n\nBlock No9 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 13.3349 \n\nBlock No10 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -10.6481 \n\nBlock No11 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -12.4956 \n\nBlock No12 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 2.3591 \n\nBlock No13 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -2.24133 \n\nBlock No14 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 0.0216876 \n\nBlock No15 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -1.66655 \n\nBlock No16 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -5.79112 \n\nBlock No17 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: -8.30452 \n\nBlock No18 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 2.91594 \n\nBlock No19 done!\nUpdating file: ACE-SOL1.force\nThis should be a number: 6.82555 \n\nBlock No20 done!\nUpdating file: ACE-SOL1.force\n\nWe are done, thank you very much!\n", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:04"}
+2026-02-20 00:28:04.590 │ INFO │ [root] │ [1771565284.59]  completed
+{"timestamp": "2026-02-20 00:28:04,590", "level": "INFO", "logger": "root", "message": "[1771565284.59]  completed", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:04"}
+2026-02-20 00:28:04.590 │ INFO │ [root] │ [1771565284.59]  started
+{"timestamp": "2026-02-20 00:28:04,590", "level": "INFO", "logger": "root", "message": "[1771565284.59]  started", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:04"}
+2026-02-20 00:28:04.591 │ DEBUG │ [workflow_manager] │ Registered task: 'task_execution' with id of task.000005
+{"timestamp": "2026-02-20 00:28:04,591", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered task: 'task_execution' with id of task.000005", "taskName": "Task-16", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:04"}
+2026-02-20 00:28:04.591 │ INFO │ [workflow_manager] │ task.000004 is in DONE state
+{"timestamp": "2026-02-20 00:28:04,591", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000004 is in DONE state", "taskName": "Task-7", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:04"}
+2026-02-20 00:28:09.591 │ INFO │ [root] │ I have 2653 beads in 878 molecules
+--------------------------------------
+WARNING: unknown molecule "NA" with id 877 in topology
+molecule will not be mapped to CG representation
+Check weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name
+--------------------------------------
+I have 879 beads in 877 molecules for the coarsegraining
+
+a: 0.37 ,sigma: 1 ,gamma: 0.12
+Number of spline functions for the interaction ACE-SOL2:10
+
+You are using VOTCA!
+
+hey, somebody wants to forcematch!
+
+Using constrained Least Squares!
+ 
+This should be a number: -5.04634 
+
+Block No1 done!
+Updating file: ACE-SOL2.force
+This should be a number: -1.23755 
+
+Block No2 done!
+Updating file: ACE-SOL2.force
+This should be a number: -20.3109 
+
+Block No3 done!
+Updating file: ACE-SOL2.force
+This should be a number: -9.4968 
+
+Block No4 done!
+Updating file: ACE-SOL2.force
+This should be a number: -19.3521 
+
+Block No5 done!
+Updating file: ACE-SOL2.force
+This should be a number: -33.6283 
+
+Block No6 done!
+Updating file: ACE-SOL2.force
+This should be a number: -14.9696 
+
+Block No7 done!
+Updating file: ACE-SOL2.force
+This should be a number: -27.3738 
+
+Block No8 done!
+Updating file: ACE-SOL2.force
+This should be a number: -23.8415 
+
+Block No9 done!
+Updating file: ACE-SOL2.force
+This should be a number: 13.3349 
+
+Block No10 done!
+Updating file: ACE-SOL2.force
+This should be a number: -10.6481 
+
+Block No11 done!
+Updating file: ACE-SOL2.force
+This should be a number: -12.4956 
+
+Block No12 done!
+Updating file: ACE-SOL2.force
+This should be a number: 2.3591 
+
+Block No13 done!
+Updating file: ACE-SOL2.force
+This should be a number: -2.24133 
+
+Block No14 done!
+Updating file: ACE-SOL2.force
+This should be a number: 0.0216876 
+
+Block No15 done!
+Updating file: ACE-SOL2.force
+This should be a number: -1.66655 
+
+Block No16 done!
+Updating file: ACE-SOL2.force
+This should be a number: -5.79112 
+
+Block No17 done!
+Updating file: ACE-SOL2.force
+This should be a number: -8.30452 
+
+Block No18 done!
+Updating file: ACE-SOL2.force
+This should be a number: 2.91594 
+
+Block No19 done!
+Updating file: ACE-SOL2.force
+This should be a number: 6.82555 
+
+Block No20 done!
+Updating file: ACE-SOL2.force
+
+We are done, thank you very much!
+
+{"timestamp": "2026-02-20 00:28:09,591", "level": "INFO", "logger": "root", "message": "I have 2653 beads in 878 molecules\n--------------------------------------\nWARNING: unknown molecule \"NA\" with id 877 in topology\nmolecule will not be mapped to CG representation\nCheck weather a mapping file for all molecule exists, was specified in --cg separated by ; and the ident tag in xml-file matches the molecule name\n--------------------------------------\nI have 879 beads in 877 molecules for the coarsegraining\n\na: 0.37 ,sigma: 1 ,gamma: 0.12\nNumber of spline functions for the interaction ACE-SOL2:10\n\nYou are using VOTCA!\n\nhey, somebody wants to forcematch!\n\nUsing constrained Least Squares!\n \nThis should be a number: -5.04634 \n\nBlock No1 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -1.23755 \n\nBlock No2 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -20.3109 \n\nBlock No3 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -9.4968 \n\nBlock No4 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -19.3521 \n\nBlock No5 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -33.6283 \n\nBlock No6 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -14.9696 \n\nBlock No7 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -27.3738 \n\nBlock No8 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -23.8415 \n\nBlock No9 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 13.3349 \n\nBlock No10 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -10.6481 \n\nBlock No11 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -12.4956 \n\nBlock No12 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 2.3591 \n\nBlock No13 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -2.24133 \n\nBlock No14 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 0.0216876 \n\nBlock No15 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -1.66655 \n\nBlock No16 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -5.79112 \n\nBlock No17 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: -8.30452 \n\nBlock No18 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 2.91594 \n\nBlock No19 done!\nUpdating file: ACE-SOL2.force\nThis should be a number: 6.82555 \n\nBlock No20 done!\nUpdating file: ACE-SOL2.force\n\nWe are done, thank you very much!\n", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.591 │ INFO │ [root] │ [1771565289.59]  completed
+{"timestamp": "2026-02-20 00:28:09,591", "level": "INFO", "logger": "root", "message": "[1771565289.59]  completed", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.611 │ INFO │ [root] │ [1771565289.61]  started
+{"timestamp": "2026-02-20 00:28:09,611", "level": "INFO", "logger": "root", "message": "[1771565289.61]  started", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.612 │ DEBUG │ [workflow_manager] │ Ready to submit: task_execution with resolved dependencies: []
+{"timestamp": "2026-02-20 00:28:09,612", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: task_execution with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.612 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:28:09,612", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.612 │ DEBUG │ [workflow_manager] │ Registered task: 'task_execution' with id of task.000006
+{"timestamp": "2026-02-20 00:28:09,612", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered task: 'task_execution' with id of task.000006", "taskName": "Task-17", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.622 │ DEBUG │ [workflow_manager] │ Ready to submit: task_execution with resolved dependencies: []
+{"timestamp": "2026-02-20 00:28:09,622", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: task_execution with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.622 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:28:09,622", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:09.631 │ INFO │ [workflow_manager] │ task.000005 is in DONE state
+{"timestamp": "2026-02-20 00:28:09,631", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000005 is in DONE state", "taskName": "Task-18", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:09"}
+2026-02-20 00:28:14.631 │ INFO │ [root] │ 
+{"timestamp": "2026-02-20 00:28:14,631", "level": "INFO", "logger": "root", "message": "", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:14.631 │ INFO │ [root] │ [1771565294.63]  completed
+{"timestamp": "2026-02-20 00:28:14,631", "level": "INFO", "logger": "root", "message": "[1771565294.63]  completed", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:14.651 │ INFO │ [root] │ [1771565294.65]  started
+{"timestamp": "2026-02-20 00:28:14,651", "level": "INFO", "logger": "root", "message": "[1771565294.65]  started", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:14.652 │ DEBUG │ [workflow_manager] │ Registered task: 'task_execution' with id of task.000007
+{"timestamp": "2026-02-20 00:28:14,652", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered task: 'task_execution' with id of task.000007", "taskName": "Task-28", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:14.652 │ DEBUG │ [workflow_manager] │ Ready to submit: task_execution with resolved dependencies: []
+{"timestamp": "2026-02-20 00:28:14,652", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: task_execution with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:14.652 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:28:14,652", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:14.652 │ INFO │ [workflow_manager] │ task.000006 is in DONE state
+{"timestamp": "2026-02-20 00:28:14,652", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000006 is in DONE state", "taskName": "Task-23", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:14"}
+2026-02-20 00:28:19.652 │ INFO │ [root] │ 
+{"timestamp": "2026-02-20 00:28:19,652", "level": "INFO", "logger": "root", "message": "", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:19.653 │ INFO │ [root] │ [1771565299.65]  completed
+{"timestamp": "2026-02-20 00:28:19,653", "level": "INFO", "logger": "root", "message": "[1771565299.65]  completed", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:19.653 │ INFO │ [root] │ [1771565299.65]  started
+{"timestamp": "2026-02-20 00:28:19,653", "level": "INFO", "logger": "root", "message": "[1771565299.65]  started", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:19.653 │ DEBUG │ [workflow_manager] │ Registered task: 'task_execution' with id of task.000008
+{"timestamp": "2026-02-20 00:28:19,653", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Registered task: 'task_execution' with id of task.000008", "taskName": "Task-31", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:19.654 │ DEBUG │ [workflow_manager] │ Ready to submit: task_execution with resolved dependencies: []
+{"timestamp": "2026-02-20 00:28:19,654", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Ready to submit: task_execution with resolved dependencies: []", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:19.654 │ INFO │ [workflow_manager] │ Submitting ['task_execution'] for execution
+{"timestamp": "2026-02-20 00:28:19,654", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Submitting ['task_execution'] for execution", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:19.654 │ INFO │ [workflow_manager] │ task.000007 is in DONE state
+{"timestamp": "2026-02-20 00:28:19,654", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000007 is in DONE state", "taskName": "Task-29", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:19"}
+2026-02-20 00:28:24.654 │ INFO │ [root] │ table_linearop.pl: ACE-SOL1.pot to ACE-SOL1.pot with y' = -1*y + 0 
+
+{"timestamp": "2026-02-20 00:28:24,654", "level": "INFO", "logger": "root", "message": "table_linearop.pl: ACE-SOL1.pot to ACE-SOL1.pot with y' = -1*y + 0 \n", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:24"}
+2026-02-20 00:28:24.655 │ INFO │ [root] │ [1771565304.66]  completed
+{"timestamp": "2026-02-20 00:28:24,655", "level": "INFO", "logger": "root", "message": "[1771565304.66]  completed", "taskName": "block.000001", "short_name": "root", "asctime": "2026-02-20 00:28:24"}
+2026-02-20 00:28:24.675 │ INFO │ [workflow_manager] │ task.000008 is in DONE state
+{"timestamp": "2026-02-20 00:28:24,675", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "task.000008 is in DONE state", "taskName": "Task-35", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:24"}
+2026-02-20 00:28:29.675 │ INFO │ [root] │ table_linearop.pl: ACE-SOL2.pot to ACE-SOL2.pot with y' = -1*y + 0 
+
+{"timestamp": "2026-02-20 00:28:29,675", "level": "INFO", "logger": "root", "message": "table_linearop.pl: ACE-SOL2.pot to ACE-SOL2.pot with y' = -1*y + 0 \n", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.695 │ INFO │ [root] │ [1771565309.70]  completed
+{"timestamp": "2026-02-20 00:28:29,695", "level": "INFO", "logger": "root", "message": "[1771565309.70]  completed", "taskName": "block.000002", "short_name": "root", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.695 │ INFO │ [workflow_manager] │ Initiating shutdown
+{"timestamp": "2026-02-20 00:28:29,695", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Initiating shutdown", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.695 │ DEBUG │ [workflow_manager] │ Shutting down run component
+{"timestamp": "2026-02-20 00:28:29,695", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Shutting down run component", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.695 │ DEBUG │ [workflow_manager] │ Run component cancelled
+{"timestamp": "2026-02-20 00:28:29,695", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Run component cancelled", "taskName": "run-component", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.695 │ INFO │ [execution.backend(concurrent)] │ Concurrent execution backend shutdown complete
+{"timestamp": "2026-02-20 00:28:29,695", "level": "INFO", "logger": "radical.asyncflow.backends.execution.concurrent", "message": "Concurrent execution backend shutdown complete", "taskName": "Task-1", "short_name": "execution.backend(concurrent)", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.696 │ DEBUG │ [workflow_manager] │ Shutting down execution backend completed
+{"timestamp": "2026-02-20 00:28:29,696", "level": "DEBUG", "logger": "radical.asyncflow.workflow_manager", "message": "Shutting down execution backend completed", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:29"}
+2026-02-20 00:28:29.696 │ INFO │ [workflow_manager] │ Shutdown completed for all components.
+{"timestamp": "2026-02-20 00:28:29,696", "level": "INFO", "logger": "radical.asyncflow.workflow_manager", "message": "Shutdown completed for all components.", "taskName": "Task-1", "short_name": "workflow_manager", "asctime": "2026-02-20 00:28:29"}
