@@ -3,3 +3,6 @@ src/out*.txt
 **/dev_resources
 **/re.session.**/
 **/__pycache__/
+**.force
+**.pot
+logs.json

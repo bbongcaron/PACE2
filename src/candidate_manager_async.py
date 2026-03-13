@@ -4,9 +4,9 @@ from Task import Task
 from Pipeline import Pipeline
 
 from radical.asyncflow import WorkflowEngine
-from radical.asyncflow import ConcurrentExecutionBackend
+from radical.asyncflow import LocalExecutionBackend
 from radical.asyncflow import logging
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 
 class CandidateManagerAsync:
 
@@ -18,6 +18,8 @@ class CandidateManagerAsync:
         So, there is some lower level logic present that we may want to create another layer of abstraction that deals with assembly
         of the workflows
 
+        1) can we name the task_execution fxn as seen in the logger?
+        
     '''
 
     def __init__(self, pipelines: list[Pipeline]):
@@ -25,7 +27,7 @@ class CandidateManagerAsync:
         self.logger = logging.init_default_logger(log_level="DEBUG", output_file="logs.json", structured_logging=True)
 
     async def execute_pipelines(self):
-        backend = await ConcurrentExecutionBackend(ThreadPoolExecutor())
+        backend = await LocalExecutionBackend(ProcessPoolExecutor())
         flow = await WorkflowEngine.create(backend=backend)
 
         # The asyncflow.block is the equivalent of the EntK pipeline
@@ -42,7 +44,7 @@ class CandidateManagerAsync:
                 now = time.time()
                 self.logger.info(f"[{now:.2f}] {task.name} started")
                 wf = await task_execution(task)
-                time.sleep(5)
+                #time.sleep(5)
                 self.logger.info(wf)
                 self.logger.info(f"[{time.time():.2f}] {task.name} completed")
 

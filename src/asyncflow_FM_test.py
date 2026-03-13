@@ -22,12 +22,12 @@ pipelines = []
 for i, candidate in enumerate(os.listdir(candidate_pool)):
     # initialize a candidate pipeline
     candidate_pipeline = Pipeline()
-    candidate_dir = os.path.join(candidate_pool, candidate)
+    candidate_dir = os.path.join(os.getcwd(), candidate_pool, candidate)
 
     ## Task 1: perform csg_fmatch
     task1 = Task()
     task1.executable = "csg_fmatch"
-    task1.args = f"--top {candidate_dir}/topol_fm.tpr --trj {candidate_dir}/traj.trr --options {candidate_dir}/settings.xml --cg '{candidate_dir}/mapping.xml;{candidate_dir}/water_CG.xml'"
+    task1.args = f"--top {candidate_dir}/topol_fm.tpr --trj {candidate_dir}/traj.trr --options {candidate_dir}/settings.xml --cg '{candidate_dir}/mapping.xml\;{candidate_dir}/water_CG.xml'"
 
     # Task 2: integrate forces w.r.t. position
     task2 = Task()
@@ -38,7 +38,7 @@ for i, candidate in enumerate(os.listdir(candidate_pool)):
     task3 = Task()
     task3.executable = "csg_call"
     task3.args = f"table linearop ACE-SOL{i+1}.pot ACE-SOL{i+1}.pot -1 0"
-    
+
     candidate_pipeline.add_task(task1)
     candidate_pipeline.add_task(task2)
     candidate_pipeline.add_task(task3)
@@ -47,3 +47,5 @@ for i, candidate in enumerate(os.listdir(candidate_pool)):
 
 candidate_manager = CandidateManagerAsync(pipelines)
 candidate_manager.run()
+
+#;{candidate_dir}/water_CG.xml
