@@ -1,0 +1,19 @@
+{
+    "basename"          : "DUMMY",
+    "candidates"        : 1,
+    "cycle_max"         : 3,
+    "pipeline_cores"    : 1,
+    "pre_md_pre_exec"   : "echo 'this is the pre_molecular_dynamics, pre_exec echo'",
+    "pre_md_executable" : "echo",
+    "pre_md_args"       : "'this is the pre_molecular_dynamics echo'",
+    "md_pre_exec"       : "echo 'this is the molecular_dynamics, pre_exec echo'",
+    "md_executable"     : "echo",
+    "md_args"           : "'this is the molecular_dynamics echo'",
+    "an_pre_exec"       : "echo 'this is the analysis, pre_exec echo'",
+    "an_executable"     : "echo",
+    "an_args"           : "'this is the analysis echo'",
+    "chead_files"       : "none, for now",
+    "md_binary"         : "none, for now",
+    "structure_in"     :  "none, for now",
+    "structure_out"     : "none, for now"
+}

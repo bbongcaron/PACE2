@@ -8,7 +8,7 @@ from radical.asyncflow import LocalExecutionBackend
 from radical.asyncflow import logging
 from concurrent.futures import ProcessPoolExecutor
 
-class CandidateManagerAsync:
+class CandidateManager:
 
     '''
         The AsyncFlow prototype rendition of CandidateManger
