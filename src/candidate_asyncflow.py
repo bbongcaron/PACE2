@@ -94,8 +94,8 @@ def print_dict(dict: Dict):
 
 def sandbox():
     # Read from simconfig.json
-    candidate_specifications_dict, resource_dict = read_jsons()
-    print_dict(candidate_specifications_dict)
+    #candidate_specifications_dict, resource_dict = read_jsons()
+    #print_dict(candidate_specifications_dict)
     '''
         In this test example, ACEALAGLY candidate directory has 2 force matching candidates (both proven to work manually)
 
