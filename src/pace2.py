@@ -9,13 +9,26 @@ from datetime import datetime
 from candidate_asyncflow import Candidate
 from candidate_manager_asyncflow import CandidateManager
 
+
 def read_jsons() -> dict:
+    """
+    Reads in an JSON file whose filepath is supplied via argv 
+    and creates an analagous Python dictionary contating the
+    user-furnished parameters
+
+    Args:
+        None.
+
+    Returns:
+        dict: The dictionary analogue of the user-furnished JSON file.
+    """
+
     candidate_specifications_dict = {}
 
     #
     #   Insert logic to read input JSON here
     #
-    #   You will have to read in a JSON file path via. sys.argv
+    #   You will have to read in a JSON filepath via. sys.argv
     #
 
     ### for now, manually populated config here:

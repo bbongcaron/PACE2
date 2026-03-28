@@ -18,8 +18,6 @@ class CandidateManager:
 
         So, there is some lower level logic present that we may want to create another layer of abstraction that deals with assembly
         of the workflows
-
-        1) can we name the task_execution fxn as seen in the logger?
         
     '''
 
@@ -52,6 +50,7 @@ class CandidateManager:
 
             futures = []
             for task in pipeline.tasks:
+                # Dragon per-task basis parameters
                 task_backend_specific_kwargs = {
                     "process_template": {"cwd": task.cwd}
                 }
