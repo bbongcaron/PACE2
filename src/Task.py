@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, os
 
 class Task:
     """
@@ -8,11 +8,11 @@ class Task:
     
     """
 
-    def __init__(self, name: str, commands: list[dict], inputFiles: list[str], cwd: str, ranks: int, threads: int):
+    def __init__(self, name: str, commands: list[dict], candidateFiles: list[str], cwd: str, ranks: int, threads: int):
         self.name = name
         self.cwd = cwd
         self.commands = []
-        self.inputFiles = inputFiles
+        self.candidateFiles = candidateFiles
         self.ranks = ranks
         self.threads = threads
 
@@ -20,6 +20,8 @@ class Task:
             executable = commandDict['executable']
             args = commandDict['args']
             self.commands.append(executable + ' ' + args)
+        
+        os.makedirs(cwd, exist_ok=True)
 
         pass
 

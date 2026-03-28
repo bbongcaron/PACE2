@@ -1,4 +1,4 @@
-import asyncio, time
+import asyncio, time, os
 
 from Task import Task
 from Pipeline import Pipeline
@@ -23,9 +23,9 @@ class CandidateManager:
         
     '''
 
-    def __init__(self, pipelines: list[Pipeline]):
+    def __init__(self, pipelines: list[Pipeline], session_dir_name: str):
         self.pipelines = pipelines
-        self.logger = logging.init_default_logger(log_level="DEBUG", output_file="logs.json", structured_logging=True)
+        self.logger = logging.init_default_logger(log_level="DEBUG", output_file=os.path.join(session_dir_name, "logs.json"), structured_logging=True)
 
     async def execute_pipelines(self):
         import multiprocessing as mp

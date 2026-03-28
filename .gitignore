@@ -8,3 +8,4 @@ src/out*.txt
 logs.json
 scratch.txt
 /tests
+/session**/

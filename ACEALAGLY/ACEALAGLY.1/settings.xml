@@ -16,7 +16,7 @@
 	</inverse>
 
 	<non-bonded>
-		<name>ACE-SOL2</name>
+		<name>ACE-SOL</name>
 		<type1>ACE</type1>
 		<type2>SOL</type2>
 		<min>0</min>
