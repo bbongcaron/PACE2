@@ -15,6 +15,8 @@ def read_jsons() -> dict:
     #
     #   Insert logic to read input JSON here
     #
+    #   You will have to read in a JSON file path via. sys.argv
+    #
 
     ### for now, manually populated config here:
     
@@ -64,7 +66,14 @@ def main() -> None:
     # Read from simconfig.json
     candidate_specifications_dict = read_jsons()
 
-    # FOR THARUN: uncomment the below two commented lines to debug your read_json() function.
+    # FOR THARUN: 
+    # 
+    # To run this driver script:
+    # 1) cd /path/to/PACE2
+    # 2) python src/pace2.py  
+    # 
+    # uncomment the below two commented lines to debug your read_json() function.
+    #
     # pprint.pprint(candidate_specifications_dict)
     # return
 

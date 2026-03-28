@@ -26,7 +26,7 @@ class Candidate:
         """
         Creates candidate pipeline with appropriate stages
         Returns:
-            Pipeline: pipeline containing appropriate stages (pre md, md, analysis, etc.) for the candidate
+            Pipeline: pipeline containing appropriate Tasks (scientific processes) for the candidate
         """
 
         basename = self.candidate_specifications['basename']
