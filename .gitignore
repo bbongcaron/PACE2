@@ -6,3 +6,5 @@ src/out*.txt
 **.force
 **.pot
 logs.json
+scratch.txt
+/tests

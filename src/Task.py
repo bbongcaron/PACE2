@@ -5,12 +5,37 @@ class Task:
     A Task is an abstraction of a computational unit. In this case, a Task
     consists of its executable along with its required software environment,
     files to be staged as input and output.
+    
     """
-    def __init__(self, name='', executable='', args=''):
+
+    def __init__(self, name: str, commands: list[dict], inputFiles: list[str], cwd: str, ranks: int, threads: int):
         self.name = name
-        self.executable = executable
-        self.args = args
+        self.cwd = cwd
+        self.commands = []
+        self.inputFiles = inputFiles
+        self.ranks = ranks
+        self.threads = threads
+
+        for commandDict in commands:
+            executable = commandDict['executable']
+            args = commandDict['args']
+            self.commands.append(executable + ' ' + args)
+
         pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
     @flow.executable_task
