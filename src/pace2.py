@@ -1,81 +1,60 @@
 #!/usr/bin/env python
-
-
 import os, sys, json
 import xml.etree.ElementTree as ET
 
-from candidate import Candidate
-from candidate_manager import CandidateManager
 from typing import Dict, Tuple
 from queue import Queue
+from datetime import datetime
 
-def read_jsons() -> Tuple[Dict, Dict]:
-    """
-    Read from specified resource and simulation json configuration files.
-    Returns:
-        Tuple[Dict, Dict] specifying the simulation and resource configurations, respectively
-    """
-    simconfig = sys.argv[1]  # simulation configuration
-    resconfig = sys.argv[2]  # resource configuration
-    sim_dict = {}
+from candidate_asyncflow import Candidate
+from candidate_manager_asyncflow import CandidateManager
 
-    # Load simulation and resource json files
-    with open(simconfig) as simconf:
-        simdata = json.load(simconf)
+def read_jsons() -> dict:
+    candidate_specifications_dict = {}
 
-    with open(resconfig) as resconf:
-        resdata = json.load(resconf)
+    #
+    #   Insert logic to read input JSON here
+    #
 
-    # Assign simulation configs
-    sim_dict['basename'] = simdata["basename"]
-    sim_dict['candidates'] = simdata["candidates"]
-    sim_dict['cycle_max'] = simdata["cycle_max"]
-    sim_dict['pipeline_cores'] = simdata["pipeline_cores"]
-
-    # Executables, args and pre exec for all the tasks
+    ### for now, manually populated config here:
     
-    sim_dict['md_executable']     = simdata["md_executable"]
-    sim_dict['md_args']           = simdata["md_args"].split()
-    sim_dict['md_pre_exec']       = simdata["md_pre_exec"]
+    candidate_specifications_dict = {
+        "basename"      :   "ACEALAGLY",
+        "candidates"    :   2,
+        "num_workers"   :   16,
+        "tasks"         :   [
+            {
+                "name"              :   "force-matching",
+                "ranks"             :   1,
+                "threads"           :   16,
+                "gpus"              :   0,
+                "candidateFiles"    :   [
+                    "topol_fm.tpr",
+                    "traj.trr",
+                    "settings.xml",
+                    "mapping.xml",
+                    "water_CG.xml"
+                ],
+                "priorTaskFiles"    : [],
+                "commands": [
+                    {
+                        "executable": "csg_fmatch",
+                        "args": "--top topol_fm.tpr --trj traj.trr --options settings.xml --cg 'mapping.xml;water_CG.xml'"
+                    },
+                    {
+                        "executable": "csg_call",
+                        "args": "table integrate ACE-SOL.force ACE-SOL.pot"
+                    },
+                                {
+                        "executable": "csg_call",
+                        "args": "table linearop ACE-SOL.pot ACE-SOL.pot -1 0"
+                    }
+                ]
+            }
+        ]
+    }
 
-    sim_dict['pre_md_executable'] = simdata["pre_md_executable"]
-    sim_dict['pre_md_args']       = simdata["pre_md_args"].split()
-    sim_dict['pre_md_pre_exec']   = simdata["pre_md_pre_exec"]
-        
-    sim_dict['an_pre_exec']       = simdata["an_pre_exec"]
-    sim_dict['an_executable']     = simdata["an_executable"]
-    sim_dict['an_args']           = simdata["an_args"].split()
-
-    ## add-on for agnosticity
-    
-    sim_dict['chead_files']       = simdata["chead_files"].split()
-    sim_dict['md_binary']     = simdata["md_binary"]
-    sim_dict['structure_in']     = simdata["structure_in"]
-    sim_dict['structure_out']     = simdata["structure_out"]
-
-    sim_dict['pilot_cores'] = resdata["cpus"]
-
-    # Assign resource configs when all fields are specified
-    try:
-        res_dict = {
-            "resource": str(resdata["resource"]),
-            "walltime": int(resdata["walltime"]),
-            "cpus": sim_dict['pilot_cores'],
-            "gpus_per_node": int(resdata["gpus_per_node"]),
-            "access_schema": str(resdata["access_schema"]),
-            "queue": str(resdata["queue"]),
-            "project": str(resdata["project"]),
-        }
-
-    # Assign resource configs when minimum fields specified
-    except:
-        res_dict = {
-            "resource": str(resdata["resource"]),
-            "walltime": int(resdata["walltime"]),
-            "cpus": sim_dict['pilot_cores'],
-
-        }
-    return sim_dict, res_dict
+    return candidate_specifications_dict
 
 
 def main() -> None:
@@ -83,28 +62,21 @@ def main() -> None:
     Main pace driver.
     """
     # Read from simconfig.json
-    candidate_specifications_dict, resource_dict = read_jsons()
-
-
-    # Obtain pre-run environment variables
-    if 'RADICAL_ENTK_VERBOSE' in os.environ:
-        os.environ['RADICAL_ENTK_REPORT'] = 'True'
-    hostname = os.environ.get('RMQ_HOSTNAME', 'localhost')
-    port = os.environ.get('RMQ_PORT', 32769)
-    username = os.environ.get('RMQ_USERNAME')
-    password = os.environ.get('RMQ_PASSWORD')
+    candidate_specifications_dict = read_jsons()
+    run_datetime = datetime.now().strftime("%Y-%b-%d_%H-%M-%S")
+    session_dir_name = f"session_{candidate_specifications_dict['basename']}_{run_datetime}"
 
     # Generate all pipelines
     pipelines = []
 
     for cid in range(candidate_specifications_dict['candidates']):
         # Create candidate pipeline
-        candidate = Candidate(candidate_specifications_dict, cid)
+        candidate = Candidate(candidate_specifications_dict, cid, session_dir_name)
         candidate.create_candidate_pipeline()
         pipelines.append(candidate.pipeline)
 
     # Create candidate manager and run
-    candidate_manager = CandidateManager(hostname, port, username, password, resource_dict, pipelines)
+    candidate_manager = CandidateManager(pipelines, session_dir_name)
     candidate_manager.run()
 
 
