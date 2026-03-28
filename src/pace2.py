@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import os, sys, json
+import os, sys, json, pprint
 import xml.etree.ElementTree as ET
 
 from typing import Dict, Tuple
@@ -63,6 +63,11 @@ def main() -> None:
     """
     # Read from simconfig.json
     candidate_specifications_dict = read_jsons()
+
+    # FOR THARUN: uncomment the below two commented lines to debug your read_json() function.
+    # pprint.pprint(candidate_specifications_dict)
+    # return
+
     run_datetime = datetime.now().strftime("%Y-%b-%d_%H-%M-%S")
     session_dir_name = f"session_{candidate_specifications_dict['basename']}_{run_datetime}"
 
