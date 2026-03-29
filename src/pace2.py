@@ -67,6 +67,7 @@ def read_jsons() -> dict:
                 ]
             }
         ]
+        
     }
 
     return candidate_specifications_dict

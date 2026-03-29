@@ -1,6 +1,5 @@
 import asyncio, time, os
 
-from Task import Task
 from Pipeline import Pipeline
 
 from radical.asyncflow import WorkflowEngine
@@ -24,13 +23,13 @@ class CandidateManager:
     def __init__(self, pipelines: list[Pipeline], session_dir_name: str):
         self.pipelines = pipelines
         self.logger = logging.init_default_logger(log_level="DEBUG", output_file=os.path.join(session_dir_name, "logs.json"), structured_logging=True)
-
-    async def execute_pipelines(self):
+        
+    async def get_workflow_manager(self):
         import multiprocessing as mp
 
         # Set Dragon as multiprocessing backend
         mp.set_start_method("dragon")
-        # Create Dragon Batch backend (4 nodes with 128 workers each)
+
         nodes = 1
         backend = await DragonExecutionBackendV3(
             num_workers=nodes * mp.cpu_count(),
@@ -38,45 +37,16 @@ class CandidateManager:
         )
 
         #backend = await LocalExecutionBackend(ProcessPoolExecutor())
-        flow = await WorkflowEngine.create(backend=backend)
+        return await WorkflowEngine.create(backend=backend)
 
-        # The asyncflow.block is the equivalent of the EntK pipeline
-        @flow.block
-        async def create_block(self, name, pipeline: Pipeline):
-            
-            # below is the actual pipeline workflow
-            now = time.time()
-            self.logger.info(f"[{now:.2f}] {name} started")
-
-            futures = []
-            for task in pipeline.tasks:
-                # Dragon per-task basis parameters
-                task_backend_specific_kwargs = {
-                    "process_template": {"cwd": task.cwd}
-                }
-
-                # A reusable higher-order function / lambda that will dynamically create asyncflow.executable_tasks for every task in the pipeline
-                @flow.executable_task
-                async def command_execution(*args, task_description=task_backend_specific_kwargs):            
-                    return args[0]
-
-                self.logger.info(f"{task.name} cwd should be {task.cwd}")
-                for command in task.commands:
-                    wf = command_execution(command, *futures)
-                    futures.append(wf)
-
-            await asyncio.gather(*futures)
-
-            self.logger.info(f"[{time.time():.2f}] {name} completed")
+    async def execute_pipelines(self):
+        flow = await self.get_workflow_manager()
 
         try:
-            # try to gather the pipelines and run them in parallel (tasks within pipelines still run sequentially)
-            await asyncio.gather(*[create_block(self, name=f"pipeline{i}", pipeline=pipeline) for i, pipeline in enumerate(self.pipelines)])
+            await asyncio.gather(*[pipeline.run(flow, self.logger) for pipeline in self.pipelines])
         except Exception as e:
-            # log errors
             self.logger.exception(e)
         finally:
-            # shutdown workflow engine
             await flow.shutdown()
 
     def run(self):

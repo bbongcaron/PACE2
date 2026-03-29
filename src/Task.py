@@ -1,4 +1,5 @@
 import asyncio, os
+from radical.asyncflow import WorkflowEngine
 
 class Task:
     """
@@ -23,9 +24,25 @@ class Task:
         
         os.makedirs(cwd, exist_ok=True)
 
-        pass
+    def get_process_template(self):
+        # Dragon per-task basis parameters
+        return {
+            "process_template": {"cwd": self.cwd}
+        }
 
+    async def run(self, flow: WorkflowEngine):
+        @flow.executable_task
+        async def command_execution(*args, task_description=self.get_process_template()):            
+            return args[0]
 
+        command_futures = []    
+        for command in self.commands:
+            command_futures.append(command_execution(command, *command_futures))
+        
+        # await futures of all commands comprising the task
+        return await asyncio.gather(*command_futures)
+
+        
 
 
 

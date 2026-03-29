@@ -1,6 +1,8 @@
-import asyncio
+import asyncio, time
 from Task import Task
 
+from radical.asyncflow import WorkflowEngine
+from radical.asyncflow import logging
 
 class Pipeline:
     """
@@ -16,9 +18,14 @@ class Pipeline:
 
     def add_task(self, task: Task):
         self.tasks.append(task)
-'''
-    @asyncflow.block
-    async def pipeline_block(self):
-        for i in range(len(self.tasks)):
-            await self.tasks[i]
-'''
+    
+    async def run(self, flow: WorkflowEngine, logger: logging):
+        @flow.block
+        async def create_block(pipeline: Pipeline):
+            logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline started")
+
+            for task in pipeline.tasks: await task.run(flow)
+
+            logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline completed")
+
+        return await create_block(self)
