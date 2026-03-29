@@ -20,6 +20,9 @@ class CandidateManager:
     async def _get_workflow_manager(self):
         """
         Configures and obtains the asynchronous workflow manager.
+
+        Returns:
+            WorkflowEngine: The asynchronous workflow manager.
         """
         import multiprocessing as mp
 

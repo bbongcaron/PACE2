@@ -28,6 +28,9 @@ class Task:
         """
         Creates a DragonV3 process template(s) that indicates 
         per-Task basis resource requirements and environment variables.
+
+        Returns:
+            A process template(s) for a radical.asyncflow task.
         """
         #
         #   TO-DO: Need to dynamically make process templates based on self.ranks,
@@ -45,6 +48,9 @@ class Task:
 
         Args:
             flow    : the asynchronous workflow manager
+
+        Returns:
+            Awaited futures of all commands comprising the Task (scientific process).
         """
         @flow.executable_task
         async def command_execution(*args, task_description=self._get_process_template()):            

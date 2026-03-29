@@ -32,6 +32,9 @@ class Pipeline:
         Args:
             flow    : the asynchronous workflow manager
             logger  : the log message manager
+        
+        Returns:
+            An awaited radical.asyncflow Composite Workflow Block (Pipeline).
         """
         @flow.block
         async def create_block(pipeline: Pipeline):
