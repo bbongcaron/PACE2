@@ -20,7 +20,7 @@ class Pipeline:
         Appends a Task to the Pipeline.
 
         Args:
-            flow    : the Task to add to the Pipeline
+            task    : the Task to add to the Pipeline
         """
         self.tasks.append(task)
     
@@ -40,7 +40,18 @@ class Pipeline:
         async def create_block(pipeline: Pipeline):
             logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline started")
 
-            for task in pipeline.tasks: await task.run(flow)
+            # By definition, Task_i can execute only after all Tasks up to Task_(i-1)
+            # have completed execution. Therefore, futures are not collected, and
+            # Tasks are awaited at every iteration of the Task list.
+            for i, task in enumerate(pipeline.tasks): 
+                #
+                # TO-DO: Obtain intermediate files from Task_(i-1) cwd
+                #        and copy them to current Task_i cwd.
+                #           
+                #        A function that belongs to the Task class should be called
+                #        here, and awaited, if function is asynchronous.
+                #
+                await task.run(flow)
 
             logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline completed")
 
