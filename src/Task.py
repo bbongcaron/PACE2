@@ -3,8 +3,8 @@ from radical.asyncflow import WorkflowEngine
 
 class Task:
     """
-    A Task is an abstraction of a computational unit. In this case, a Task
-    consists of its executable along with its required software environment,
+    A Task is an abstraction of a single scientific process. In this case, a Task
+    consists of its command sequence along with its required resource alllocation,
     files to be staged as input and output.
     
     """
@@ -24,15 +24,30 @@ class Task:
         
         os.makedirs(cwd, exist_ok=True)
 
-    def get_process_template(self):
-        # Dragon per-task basis parameters
+    def _get_process_template(self):
+        """
+        Creates a DragonV3 process template(s) that indicates 
+        per-Task basis resource requirements and environment variables.
+        """
+        #
+        #   TO-DO: Need to dynamically make process templates based on self.ranks,
+        #          self.threads, and self.gpus. Single-rank process template used
+        #          for now.
+        #
         return {
             "process_template": {"cwd": self.cwd}
         }
 
     async def run(self, flow: WorkflowEngine):
+        """
+        Creates radical.asyncflow Executable Tasks to be submitted to
+        the asyncrhonous workflow manager.
+
+        Args:
+            flow    : the asynchronous workflow manager
+        """
         @flow.executable_task
-        async def command_execution(*args, task_description=self.get_process_template()):            
+        async def command_execution(*args, task_description=self._get_process_template()):            
             return args[0]
 
         command_futures = []    

@@ -9,22 +9,18 @@ from concurrent.futures import ProcessPoolExecutor
 from rhapsody.backends import DragonExecutionBackendV3
 
 class CandidateManager:
-
-    '''
-        The AsyncFlow prototype rendition of CandidateManger
-
-        Note that assembly of the asyncflow blocks/executable_tasks had to be in the same scope as the asyncflow backend/workflow engine
-
-        So, there is some lower level logic present that we may want to create another layer of abstraction that deals with assembly
-        of the workflows
-        
-    '''
+    """
+        The AsyncFlow rendition of CandidateManger
+    """
 
     def __init__(self, pipelines: list[Pipeline], session_dir_name: str):
         self.pipelines = pipelines
         self.logger = logging.init_default_logger(log_level="DEBUG", output_file=os.path.join(session_dir_name, "logs.json"), structured_logging=True)
         
-    async def get_workflow_manager(self):
+    async def _get_workflow_manager(self):
+        """
+        Configures and obtains the asynchronous workflow manager.
+        """
         import multiprocessing as mp
 
         # Set Dragon as multiprocessing backend
@@ -40,7 +36,10 @@ class CandidateManager:
         return await WorkflowEngine.create(backend=backend)
 
     async def execute_pipelines(self):
-        flow = await self.get_workflow_manager()
+        """
+        Executes Pipeline coroutines concurrently.
+        """
+        flow = await self._get_workflow_manager()
 
         try:
             await asyncio.gather(*[pipeline.run(flow, self.logger) for pipeline in self.pipelines])
@@ -50,4 +49,7 @@ class CandidateManager:
             await flow.shutdown()
 
     def run(self):
+        """
+        Runs pipelines in workflow.
+        """
         asyncio.run(self.execute_pipelines())
