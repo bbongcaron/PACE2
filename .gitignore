@@ -9,3 +9,6 @@ logs.json
 scratch.txt
 /tests
 /session**/
+dev/
+plots/
+telemetry-results/
