@@ -1,26 +1,27 @@
 import asyncio, os, sys, json, shutil
 from datetime import datetime
 
-from Task import Task
-from Pipeline import Pipeline
-from candidate_manager_asyncflow import CandidateManager
+from candidate_base import BaseCandidatePACE2
 
-class Candidate:
+class ForceMatchingCandidate(BaseCandidatePACE2):
     """
     Defines class to manage candidates.
     """
-    def __init__(self, candidate_specifications: dict, cid: int, session_dir_name: str):
+    def __init__(self, candidate_specifications: dict, cid: int, session_dir_name: str, hyperparmeters: dict):
         """
         Initializes pipeline, candidate specifications dictionary, and candidate id
         Args:
             candidate_specifications: dictionary containing simulation configurations
             cid: unique candidate id
         """
-        self.pipeline = Pipeline()
-        self.candidate_specifications = candidate_specifications
-        self.cid = cid
-        self.cycle_count = 0
-        self.session_dir_name = session_dir_name
+
+        BaseCandidatePACE2.__init__(self, candidate_specifications, cid, session_dir_name)
+
+        self.topology = "topol_fm.tpr"
+        self.trajectory = "traj.trr"
+        self.settings = "settings.xml"
+        self.mapping = "mapping.xml"
+        self.water_CG = "water_CG.xml"
 
     def create_candidate_pipeline(self) -> Pipeline:
         """
