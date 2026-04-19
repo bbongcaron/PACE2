@@ -15,12 +15,13 @@ class BaseCandidatePACE2:
 
         self.candidate_specifications = candidate_specifications
         self.cid = cid
-        self.cycle_count = 0
         self.session_dir_name = session_dir_name
+        self.workflow_engine = None
 
-    def create_candidate_pipeline(self) -> Pipeline:
-        pass
-
+    def assign_workflow_engine(flow: WorkflowEngine):
+        self.workflow_engine = flow
+    
+    
     async def run_workflow(self, flow: WorkflowEngine, logger: logging):
         """
         Creates an radical.asyncflow Composite Workflow Block to be submitted to
@@ -33,8 +34,9 @@ class BaseCandidatePACE2:
         Returns:
             An awaited radical.asyncflow Composite Workflow Block (Pipeline).
         """
+
         @flow.block
-        async def create_block(pipeline: Pipeline):
+        async def create_block():
             logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline started")
 
             # By definition, Task_i can execute only after all Tasks up to Task_(i-1)
