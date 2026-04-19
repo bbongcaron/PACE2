@@ -40,10 +40,19 @@ class BaseCandidatePACE2:
         Returns:
             An awaited radical.asyncflow Composite Workflow Block.
         """
+    
+        @self.flow.function_task
+        async def task1(name: str):
+            now = time.time()
+            print(f"[{now:.2f}] {name} started")
+            await asyncio.sleep(0.5)  # simulate work
+            print(f"[{time.time():.2f}] {name} completed")
+            return now
+
         @self.flow.block
         async def create_composite_workflow(self):
             self.logger.info(f"[{time.time():.2f}] placeholder workflow block started")
-            await time.sleep(2)
+            await task1("task1")
             self.logger.info(f"[{time.time():.2f}] placeholder workflow block completed")
 
         return await self.create_composite_workflow()
