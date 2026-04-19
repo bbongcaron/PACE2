@@ -16,7 +16,7 @@ class CandidateManager:
     def __init__(self, pipelines: list[Pipeline], session_dir_name: str):
         self.pipelines = pipelines
         self.logger = logging.init_default_logger(log_level="DEBUG", output_file=os.path.join(session_dir_name, "logs.json"), structured_logging=True)
-        
+    
     async def _get_workflow_manager(self):
         """
         Configures and obtains the asynchronous workflow manager.
@@ -45,7 +45,10 @@ class CandidateManager:
         flow = await self._get_workflow_manager()
 
         try:
-            await asyncio.gather(*[pipeline.run(flow, self.logger) for pipeline in self.pipelines])
+            for pipeline in self.pipelines: 
+                pipeline.flow = flow
+
+            await asyncio.gather(*[pipeline.run(self.logger) for pipeline in self.pipelines])
         except Exception as e:
             self.logger.exception(e)
         finally:

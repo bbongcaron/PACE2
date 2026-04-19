@@ -14,6 +14,10 @@ class Pipeline:
     def __init__(self, name=''):
         self.name = name
         self.tasks = []
+        self.flow = None
+        
+    def assign_workflow_manager(flow: WorkflowEngine):
+        self.flow = flow
 
     def add_task(self, task: Task):
         """
@@ -24,7 +28,7 @@ class Pipeline:
         """
         self.tasks.append(task)
     
-    async def run(self, flow: WorkflowEngine, logger: logging):
+    async def run(self, logger: logging):
         """
         Creates an radical.asyncflow Composite Workflow Block to be submitted to
         the asyncrhonous workflow manager.
@@ -36,7 +40,7 @@ class Pipeline:
         Returns:
             An awaited radical.asyncflow Composite Workflow Block (Pipeline).
         """
-        @flow.block
+        @self.flow.block
         async def create_block(pipeline: Pipeline):
             logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline started")
 
@@ -51,7 +55,7 @@ class Pipeline:
                 #        A function that belongs to the Task class should be called
                 #        here, and awaited, if function is asynchronous.
                 #
-                await task.run(flow)
+                await task.run(self.flow)
 
             logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline completed")
 
