@@ -1,5 +1,6 @@
-from Pipeline import Pipeline
-from candidate_manager_asyncflow import CandidateManager
+from radical.asyncflow import WorkflowEngine
+from radical.asyncflow import logging
+import os, time
 
 class BaseCandidatePACE2:
     """
@@ -14,44 +15,35 @@ class BaseCandidatePACE2:
         """
 
         self.candidate_specifications = candidate_specifications
-        self.cid = cid
-        self.session_dir_name = session_dir_name
-        self.workflow_engine = None
 
-    def assign_workflow_engine(flow: WorkflowEngine):
-        self.workflow_engine = flow
+        self.basename = self.candidate_specifications['basename']
+        self.cid = str(cid)
+        self.sysname = self.basename + "." + self.cid
+        self.candidate_pool_dir = os.path.join(os.getcwd(), self.basename, self.sysname)
+
+        self.session_dir_name = session_dir_name
+
+    def set_workflow_engine(self, flow: WorkflowEngine):
+        self.flow = flow
     
-    
-    async def run_workflow(self, flow: WorkflowEngine, logger: logging):
+    def set_logger(self, logger: logging):
+        self.logger = logger
+
+    def get_task_cwd(self, taskname: str):
+        return os.path.join(os.getcwd(), self.session_dir_name, self.sysname, taskname)
+
+    async def run_composite_workflow(self):
         """
         Creates an radical.asyncflow Composite Workflow Block to be submitted to
         the asyncrhonous workflow manager.
 
-        Args:
-            flow    : the asynchronous workflow manager
-            logger  : the log message manager
-        
         Returns:
-            An awaited radical.asyncflow Composite Workflow Block (Pipeline).
+            An awaited radical.asyncflow Composite Workflow Block.
         """
+        @self.flow.block
+        async def create_composite_workflow(self):
+            self.logger.info(f"[{time.time():.2f}] placeholder workflow block started")
+            await time.sleep(2)
+            self.logger.info(f"[{time.time():.2f}] placeholder workflow block completed")
 
-        @flow.block
-        async def create_block():
-            logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline started")
-
-            # By definition, Task_i can execute only after all Tasks up to Task_(i-1)
-            # have completed execution. Therefore, futures are not collected, and
-            # Tasks are awaited at every iteration of the Task list.
-            for i, task in enumerate(pipeline.tasks): 
-                #
-                # TO-DO: Obtain intermediate files from Task_(i-1) cwd
-                #        and copy them to current Task_i cwd.
-                #           
-                #        A function that belongs to the Task class should be called
-                #        here, and awaited, if function is asynchronous.
-                #
-                await task.run(flow)
-
-            logger.info(f"[{time.time():.2f}] {pipeline.name} pipeline completed")
-
-        return await create_block(self)
+        return await self.create_composite_workflow()

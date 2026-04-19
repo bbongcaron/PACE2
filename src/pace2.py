@@ -6,8 +6,8 @@ from typing import Dict, Tuple
 from queue import Queue
 from datetime import datetime
 
-from candidate_asyncflow import Candidate
-from candidate_manager_asyncflow import CandidateManager
+from candidate_fm import ForceMatchingCandidate
+from candidate_manager import CandidateManager
 
 
 def read_jsons() -> dict:
@@ -37,37 +37,6 @@ def read_jsons() -> dict:
         "basename"      :   "ACEALAGLY",
         "candidates"    :   2,
         "num_workers"   :   16,
-        "tasks"         :   [
-            {
-                "name"              :   "force-matching",
-                "ranks"             :   1,
-                "threads"           :   16,
-                "gpus"              :   0,
-                "candidateFiles"    :   [
-                    "topol_fm.tpr",
-                    "traj.trr",
-                    "settings.xml",
-                    "mapping.xml",
-                    "water_CG.xml"
-                ],
-                "priorTaskFiles"    : [],
-                "commands": [
-                    {
-                        "executable": "csg_fmatch",
-                        "args": "--top topol_fm.tpr --trj traj.trr --options settings.xml --cg 'mapping.xml;water_CG.xml'"
-                    },
-                    {
-                        "executable": "csg_call",
-                        "args": "table integrate ACE-SOL.force ACE-SOL.pot"
-                    },
-                                {
-                        "executable": "csg_call",
-                        "args": "table linearop ACE-SOL.pot ACE-SOL.pot -1 0"
-                    }
-                ]
-            }
-        ]
-        
     }
 
     return candidate_specifications_dict
@@ -95,16 +64,15 @@ def main() -> None:
     session_dir_name = f"session_{candidate_specifications_dict['basename']}_{run_datetime}"
 
     # Generate all pipelines
-    pipelines = []
+    candidates = []
 
     for cid in range(candidate_specifications_dict['candidates']):
         # Create candidate pipeline
-        candidate = Candidate(candidate_specifications_dict, cid, session_dir_name)
-        candidate.create_candidate_pipeline()
-        pipelines.append(candidate.pipeline)
+        candidate = ForceMatchingCandidate(candidate_specifications_dict, cid, session_dir_name)
+        candidates.append(candidate)
 
     # Create candidate manager and run
-    candidate_manager = CandidateManager(pipelines, session_dir_name)
+    candidate_manager = CandidateManager(candidates, session_dir_name)
     candidate_manager.run()
 
 

@@ -1,13 +1,14 @@
-import asyncio, os, sys, json, shutil
+import asyncio, os, sys, json, shutil, time
 from datetime import datetime
 
 from candidate_base import BaseCandidatePACE2
+from radical.asyncflow import logging
 
 class ForceMatchingCandidate(BaseCandidatePACE2):
     """
     Defines class to manage candidates.
     """
-    def __init__(self, candidate_specifications: dict, cid: int, session_dir_name: str, hyperparmeters: dict):
+    def __init__(self, candidate_specifications: dict, cid: int, session_dir_name: str):
         """
         Initializes pipeline, candidate specifications dictionary, and candidate id
         Args:
@@ -17,39 +18,51 @@ class ForceMatchingCandidate(BaseCandidatePACE2):
 
         BaseCandidatePACE2.__init__(self, candidate_specifications, cid, session_dir_name)
 
-        self.topology = "topol_fm.tpr"
-        self.trajectory = "traj.trr"
-        self.settings = "settings.xml"
-        self.mapping = "mapping.xml"
-        self.water_CG = "water_CG.xml"
+        def get_hyperparameters():
+            return {}
 
-    def create_candidate_pipeline(self) -> Pipeline:
-        """
-        Creates candidate pipeline with appropriate stages
-        Returns:
-            Pipeline: pipeline containing appropriate Tasks (scientific processes) for the candidate
-        """
-
-        basename = self.candidate_specifications['basename']
-        sysname = basename + "." + str(self.cid)
-        self.pipeline.name = sysname
-        candidate_pool_dir = os.path.join(os.getcwd(), basename, sysname)
+        self.topology = os.path.join(self.candidate_pool_dir, "topol_fm.tpr")
+        self.trajectory = os.path.join(self.candidate_pool_dir, "traj.trr")
+        self.settings = os.path.join(self.candidate_pool_dir, "settings.xml")
+        self.mapping = os.path.join(self.candidate_pool_dir, "mapping.xml")
+        self.water_CG = os.path.join(self.candidate_pool_dir, "water_CG.xml")
+        self.force_out = "ACE-SOL.force"
+        self.pot_out = "ACE-SOL.pot"
         
-        #
-        #   TO-DO: dynamic creation of Asynchronous Workflow of Tasks based on len(self.candidate_specifications["tasks"])
-        #
-        task = Task(name=self.candidate_specifications["tasks"][0]["name"], 
-                    commands=self.candidate_specifications["tasks"][0]["commands"], 
-                    candidateFiles=self.candidate_specifications["tasks"][0]["candidateFiles"],
-                    cwd=os.path.join(os.getcwd(), self.session_dir_name, sysname, self.candidate_specifications["tasks"][0]["name"]), 
-                    ranks=self.candidate_specifications["tasks"][0]["ranks"], 
-                    threads=self.candidate_specifications["tasks"][0]["threads"])
+        self.hyperparmaeters = get_hyperparameters()
+
+    async def run_composite_workflow(self):
+        @self.flow.executable_task
+        async def csg_fmatch(task_description: dict, *args):
+            return f'''csg_fmatch --top {self.topology} 
+                        --trj {self.trajectory} 
+                        --options {self.settings} 
+                        --cg "{self.mapping};{self.water_CG}"
+                    '''
+
+        @self.flow.executable_task
+        async def csg_call_integrate(task_description: dict, *args):
+            return f"csg_call table integrate {self.force_out} {self.pot_out}"
+
+        @self.flow.executable_task
+        async def csg_call_linearop(task_description: dict, *args):
+            return f"csg_call table linearop {self.pot_out} {self.pot_out} -1 0"
+
+        @self.flow.block
+        async def create_composite_workflow():
+            self.logger.info(f"[{time.time():.2f}] {self.sysname} workflow block started")
+
+            process_template = {"cwd" :self.get_task_cwd(csg_fmatch.__name__)}
+            csg_fmatch_future = csg_fmatch(process_template)
+
+            process_template = {"cwd" :self.get_task_cwd(csg_call_integrate.__name__)}
+            csg_call_integrate_future = csg_call_integrate(process_template, csg_fmatch_future)
+
+            process_template = {"cwd" :self.get_task_cwd(csg_call_linearop.__name__)}
+            csg_call_linearop_future = csg_call_linearop(process_template, csg_fmatch_future, csg_call_integrate_future)
+            
+            await csg_call_linearop_future
+
+            self.logger.info(f"[{time.time():.2f}] {self.sysname} workflow block completed")
         
-        for inputFile in task.candidateFiles:
-            full_path = os.path.join(candidate_pool_dir, inputFile)
-            destination_path = os.path.join(task.cwd, inputFile)
-            shutil.copy2(full_path, destination_path)
-
-        self.pipeline.add_task(task)
-
-        return self.pipeline
+        return await create_composite_workflow()
