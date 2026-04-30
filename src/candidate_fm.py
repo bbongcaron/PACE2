@@ -32,34 +32,30 @@ class ForceMatchingCandidate(BaseCandidatePACE2):
         self.hyperparmaeters = get_hyperparameters()
 
     async def run_composite_workflow(self):
-        @self.flow.executable_task
-        async def csg_fmatch(task_description: dict, *args):
-            return f'''csg_fmatch --top {self.topology} 
-                        --trj {self.trajectory} 
-                        --options {self.settings} 
-                        --cg "{self.mapping};{self.water_CG}"
-                    '''
-
-        @self.flow.executable_task
-        async def csg_call_integrate(task_description: dict, *args):
-            return f"csg_call table integrate {self.force_out} {self.pot_out}"
-
-        @self.flow.executable_task
-        async def csg_call_linearop(task_description: dict, *args):
-            return f"csg_call table linearop {self.pot_out} {self.pot_out} -1 0"
 
         @self.flow.block
         async def create_composite_workflow():
             self.logger.info(f"[{time.time():.2f}] {self.sysname} workflow block started")
 
-            process_template = {"cwd" :self.get_task_cwd(csg_fmatch.__name__)}
-            csg_fmatch_future = csg_fmatch(process_template)
+            @self.flow.executable_task
+            async def csg_fmatch(*args, task_description={"process_template": {"cwd" :self.get_task_cwd("csg_fmatch")}}):
+                return f'''csg_fmatch --top {self.topology} 
+                            --trj {self.trajectory} 
+                            --options {self.settings} 
+                            --cg "{self.mapping};{self.water_CG}"
+                        '''
 
-            process_template = {"cwd" :self.get_task_cwd(csg_call_integrate.__name__)}
-            csg_call_integrate_future = csg_call_integrate(process_template, csg_fmatch_future)
+            @self.flow.executable_task
+            async def csg_call_integrate(*args, task_description={"process_template": {"cwd" :self.get_task_cwd("csg_call_integrate")}}):
+                return f"csg_call table integrate {self.force_out} {self.pot_out}"
 
-            process_template = {"cwd" :self.get_task_cwd(csg_call_linearop.__name__)}
-            csg_call_linearop_future = csg_call_linearop(process_template, csg_fmatch_future, csg_call_integrate_future)
+            @self.flow.executable_task
+            async def csg_call_linearop(*args, task_description={"process_template": {"cwd" :self.get_task_cwd("csg_call_linearop")}}):
+                return f"csg_call table linearop {self.pot_out} {self.pot_out} -1 0"
+
+            csg_fmatch_future = csg_fmatch()
+            csg_call_integrate_future = csg_call_integrate(csg_fmatch_future)
+            csg_call_linearop_future = csg_call_linearop(csg_fmatch_future, csg_call_integrate_future)
             
             await csg_call_linearop_future
 

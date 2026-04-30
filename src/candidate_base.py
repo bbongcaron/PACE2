@@ -30,7 +30,10 @@ class BaseCandidatePACE2:
         self.logger = logger
 
     def get_task_cwd(self, taskname: str):
-        return os.path.join(os.getcwd(), self.session_dir_name, self.sysname, taskname)
+        task_dir = os.path.join(os.getcwd(), self.session_dir_name, self.sysname)
+        if not os.path.isdir(task_dir):
+            os.mkdir(task_dir)
+        return task_dir
 
     async def run_composite_workflow(self):
         """
