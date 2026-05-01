@@ -29,8 +29,8 @@ class BaseCandidatePACE2:
     def set_logger(self, logger: logging):
         self.logger = logger
 
-    def get_task_cwd(self, taskname: str):
-        task_dir = os.path.join(os.getcwd(), self.session_dir_name, self.sysname)
+    def get_candidate_cwd(self, taskname=''):
+        task_dir = os.path.join(os.getcwd(), self.session_dir_name, self.sysname, taskname) if taskname != '' else os.path.join(os.getcwd(), self.session_dir_name, self.sysname) 
         if not os.path.isdir(task_dir):
             os.mkdir(task_dir)
         return task_dir
