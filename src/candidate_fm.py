@@ -22,7 +22,7 @@ class ForceMatchingCandidate(BaseCandidatePACE2):
 
         self.topology = os.path.join(self.candidate_pool_dir, "topol_fm.tpr")
         self.trajectory = os.path.join(self.candidate_pool_dir, "traj.trr")
-        self.settings = os.path.join(self.candidate_pool_dir, "settings.xml")
+        self.settings = os.path.join(self.candidate_pool_dir, "settings_FM.xml")
         self.mapping = os.path.join(self.candidate_pool_dir, "mapping.xml")
         self.water_CG = os.path.join(self.candidate_pool_dir, "water_CG.xml")
         self.force_out = "ACE-SOL.force"
@@ -66,7 +66,7 @@ class ForceMatchingCandidate(BaseCandidatePACE2):
 
             @self.flow.executable_task
             async def csg_fmatch(*args, task_description={"process_template": {"cwd" :self.get_candidate_cwd()}}):
-                return f'''csg_fmatch --top {self.topology} 
+                return f'''csg_fmatch --verbose --top {self.topology} 
                             --trj {self.trajectory} 
                             --options {self.settings} 
                             --cg "{self.mapping};{self.water_CG}"

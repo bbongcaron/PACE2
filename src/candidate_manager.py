@@ -11,8 +11,9 @@ class CandidateManager:
         The AsyncFlow rendition of CandidateManger
     """
 
-    def __init__(self, candidates: list, session_dir_name: str):
+    def __init__(self, candidates: list, session_dir_name: str, num_workers=1):
         self.candidates = candidates
+        self.num_workers = num_workers
         self.logger = logging.init_default_logger(log_level="DEBUG", output_file=os.path.join(session_dir_name, "logs.json"), structured_logging=True)
 
     async def _get_workflow_manager(self):
@@ -27,9 +28,8 @@ class CandidateManager:
         # Set Dragon as multiprocessing backend
         mp.set_start_method("dragon")
 
-        nodes = 1
         backend = await DragonExecutionBackendV3(
-            num_workers=nodes * mp.cpu_count(),
+            num_workers=self.num_workers,
             disable_background_batching=False,
         )
 
