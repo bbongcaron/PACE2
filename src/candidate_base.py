@@ -22,6 +22,8 @@ class BaseCandidatePACE2:
         self.candidate_pool_dir = os.path.join(os.getcwd(), self.basename, self.sysname)
 
         self.session_dir_name = session_dir_name
+        if not os.path.isdir(self.session_dir_name):
+            os.mkdir(self.session_dir_name)
 
     def set_workflow_engine(self, flow: WorkflowEngine):
         self.flow = flow

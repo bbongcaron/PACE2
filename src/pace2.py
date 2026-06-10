@@ -34,9 +34,9 @@ def read_jsons() -> dict:
     ### for now, manually populated config here:
     
     candidate_specifications_dict = {
-        "basename"      :   "FFF",
-        "candidates"    :   60,
-        "num_workers"   :   16,
+        "basename"      :   "COO-COO",
+        "candidates"    :   146,
+        "num_nodes"     :   1,
     }
 
     return candidate_specifications_dict
@@ -72,7 +72,7 @@ def main() -> None:
         candidates.append(candidate)
 
     # Create candidate manager and run
-    candidate_manager = CandidateManager(candidates, session_dir_name, num_workers=candidate_specifications_dict['num_workers'])
+    candidate_manager = CandidateManager(candidates, session_dir_name, num_nodes=candidate_specifications_dict['num_nodes'])
     candidate_manager.run()
 
 
