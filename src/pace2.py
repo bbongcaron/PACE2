@@ -34,8 +34,8 @@ def read_jsons() -> dict:
     ### for now, manually populated config here:
     
     candidate_specifications_dict = {
-        "basename"      :   "COO-COO",
-        "candidates"    :   146,
+        "basename"      :   "FFF25",
+        "candidates"    :   5376,
         "num_nodes"     :   1,
     }
 
