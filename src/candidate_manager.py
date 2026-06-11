@@ -16,7 +16,7 @@ class CandidateManager:
         self.num_nodes = num_nodes
         self.session_dir_name = session_dir_name
         self.logger = None
-        self.batch_size = 10
+        self.batch_size = 50
 
     async def _get_workflow_manager(self):
         """
